@@ -1,0 +1,62 @@
+<html>
+<head>
+<title> CountDown Timer </title>
+<link rel = "icon" href ="timer.ico"> </link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+*{font-size:2vw; font-family:Cambria; margin:auto; text-align:center;border-radius:30px;}
+body{background-color: linen;}
+h1{background-color:black; color:white; margin:2%;text-align:center;}
+h2{background-color:black; color:white; border:groove; width:70%; border-radius:30px; margin-top:3%; text-align:center;}
+</style>
+</head>
+<body>
+<h1> Countdown Timer </h1>
+<form onsubmit ="show()">
+<input type = "number" id ="time" placeholder="Enter the time in seconds"/>
+<br/> <br/>
+<input type = "submit" value="Start"/>
+</form>
+<h2 id ="msg"/>
+
+<audio id ="au1" src ="beep.mp3"></audio>
+<script>
+function show() {
+event.preventDefault();
+let time = document.getElementById("time");
+let au1 = document.getElementById("au1");
+let msg = document.getElementById("msg");
+
+
+if(time.value === ""){
+
+alert("Please enter the time");
+msg.innerHTML ="";
+time.focus();
+}
+
+let t = parseInt(time.value);
+
+if(t<1) {
+alert("time cannot be less than 1 second");
+msg.innerHTML="";
+time.value="";
+time.focus();
+}
+
+function updateTime() {
+if(t >0) {
+msg.innerHTML = t + " " + (Number(t) === 1 ? "second" : "seconds");
+t--;
+setTimeout(updateTime,1000);
+}
+else{
+msg.innerHTML = "Time's Up";
+au1.play();
+}
+}
+updateTime();
+}
+</script>
+</body>
+</html>

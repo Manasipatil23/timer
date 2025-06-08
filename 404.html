@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> CountDown Timer </title>
+<link rel = "icon" href ="timer.ico"> </link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+*{font-size:2vw; font-family:Cambria; margin:auto; text-align:center; border-radius:40px;}
+body{background-color: linen;}
+h1{background-color:black; color:white; margin:2%;text-align:center;}
+h2{background-color:black; color:white; border:groove; width:70%; border-radius:30px; margin-top:3%; text-align:center;}
+</style>
+</head>
+<body>
+<h1> Countdown Timer </h1>
+<h2 id ="msg"/>
+<script>
+let msg = document.getElementById("msg");
+msg.innerHTML = "Page not found";
+
+let gohome= () => {
+window.location.href = "index.html";
+};
+setInterval(gohome,3000);
+</script>
+</body>
+</html>
